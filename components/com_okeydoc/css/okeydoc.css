@@ -1,0 +1,194 @@
+/**
+ * @package Okey DOC 1.x
+ * @copyright Copyright (c)2014 - 2017 Lucas Sanner
+ * @license GNU General Public License version 3, or later
+ * @contact lucas.sanner@gmail.com
+ */
+
+.categories-list, 
+.blog, 
+.list, 
+.edit-document {
+  overflow: hidden;
+  padding: 1%;
+}
+
+.categories-list div {
+}
+
+.categories-list h3.item-title {
+  padding-left: 35px;
+  background-image: url('../../../media/com_okeydoc/images/directory-32x25.png');
+  background-repeat: no-repeat;
+  background-position: 0 20%;
+  margin-bottom: 0;
+}
+
+.categories-list div .category-desc {
+  margin-left: 0;
+}
+
+.categories-list div div h3.item-title {
+  padding-left: 25px;
+  background-image: url('../../../media/com_okeydoc/images/subdirectory-22x18.png');
+  background-repeat: no-repeat;
+  background-position: 0 30%;
+  margin-bottom: 0;
+}
+
+.categories-list div h3 {
+  font-size: 22px;
+}
+
+.categories-list div div {
+  margin-left: 10px;
+}
+
+.categories-list div div h3 {
+  font-size: 18px;
+}
+
+.list h2.category-title, 
+.blog h2.category-title {
+  padding-left: 40px;
+  background-image: url('../../../media/com_okeydoc/images/directory-32x25.png');
+  background-repeat: no-repeat;
+  background-position: 0 30%;
+  margin-bottom: 0;
+}
+
+.okeydoc-toolbar {
+  margin-top: 20px;
+}
+
+.introtext {
+  font-size: 12px;
+}
+
+.document-page {
+  overflow: hidden;
+  padding: 1%;
+  margin-top: 10px;
+}
+
+.document-item {
+  display: table;
+  padding: 1%;
+  margin-top: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.document-general {
+  display: table-cell;
+}
+
+.document-details {
+  display: table-cell;
+  width: 39%; 
+}
+
+.page-header {
+  overflow: hidden;
+  margin-bottom: 10px;
+  border-bottom: none !important;
+}
+
+.page-header h2 {
+  float: left;
+  margin: 0;
+  font-size: 18px;
+}
+
+.author {
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.author-label {
+  float: left;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.document-details table .detail-label {
+  font-weight: bold;
+}
+
+.file-icon {
+  display: block;
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.complete-details {
+  padding: 5px;
+}
+
+.download-button {
+  padding: 5px;
+}
+
+.button-edit {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.checked-out-icon {
+}
+
+.directory-icon {
+  display: block;
+  float: left;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.form-space {
+  display: block;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.link-document-space {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 200px;
+}
+
+ul.subdirectories {
+}
+
+.cat-children {
+}
+
+.cat-children h3 {
+  font-size: 18px;
+}
+
+.subdirectories li {
+  display: list-item;
+  margin-left: 20px;
+  list-style-image: url('../../../media/com_okeydoc/images/subdirectory-22x18.png');
+}
+
+.subdirectories li span.item-title {
+  font-size: 14px;
+}
+
+.subdirectories li dl{
+}
+
+.subdirectories li dl dt {
+  float: left;
+  margin-right: 5px;
+  color: #707070;
+  font-weight: normal;
+}
+
+.subdirectories li dl dd {
+  font-weight: bold;
+}
+

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="com_okeydoc_categories_view_default_title" option="com_okeydoc_categories_view_default_option">
+		<help
+			key="JHELP_MENUS_MENU_ITEM_OKEYDOC_CATEGORIES"
+		/>
+		<message>
+			<![CDATA[com_okeydoc_categories_view_default_desc]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request" >
+			<field name="id" type="category"
+				description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
+				extension="com_okeydoc"
+				label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
+				show_root="true"
+				required="true" />
+		</fieldset>
+	</fields>
+
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	<fieldset name="basic" label="JGLOBAL_CATEGORIES_OPTIONS">
+
+			<field name="show_base_description" type="list"
+				label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
+				description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="categories_description" type="textarea"
+				description="JGLOBAL_FIELD_CATEGORIES_DESC_DESC"
+				label="JGLOBAL_FIELD_CATEGORIES_DESC_LABEL"
+				cols="25"
+				rows="5" />
+
+			<field name="maxLevelcat" type="list"
+				default="-1"
+				description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
+				label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="-1">JALL</option>
+				<option value="1">J1</option>
+				<option value="2">J2</option>
+				<option value="3">J3</option>
+				<option value="4">J4</option>
+				<option value="5">J5</option>
+
+			</field>
+
+			<field name="show_empty_categories_cat" type="list"
+				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
+				description="COM_OKEYDOC_SHOW_EMPTY_CATEGORIES_DESC" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="show_subcat_desc_cat" type="list"
+			description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
+			label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="show_cat_num_documents_cat" type="list"
+			description="COM_OKEYDOC_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+			label="COM_OKEYDOC_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+	</fieldset>
+
+	<fieldset name="category" label="JGLOBAL_CATEGORY_OPTIONS">
+			<field name="spacer1" type="spacer" class="text"
+					label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL" />
+
+			<field name="show_category_title" type="list"
+				label="JGLOBAL_SHOW_CATEGORY_TITLE"
+				description="JGLOBAL_SHOW_CATEGORY_TITLE_DESC" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="show_description" type="list"
+				description="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_DESC"
+				label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="show_description_image" type="list"
+				description="JGLOBAL_SHOW_CATEGORY_IMAGE_DESC"
+				label="JGLOBAL_SHOW_CATEGORY_IMAGE_LABEL" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="maxLevel" type="list"
+				description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
+				label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JNONE</option>
+				<option value="-1">JALL</option>
+				<option value="1">J1</option>
+				<option value="2">J2</option>
+				<option value="3">J3</option>
+				<option value="4">J4</option>
+				<option value="5">J5</option>
+
+			</field>
+
+			<field name="show_empty_categories" type="list"
+				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
+				description="COM_OKEYDOC_SHOW_EMPTY_CATEGORIES_DESC" >
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="show_no_documents"
+				type="list"
+				label="COM_OKEYDOC_NO_DOCUMENTS_LABEL"
+				description="COM_OKEYDOC_NO_DOCUMENTS_DESC">
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="1">JSHOW</option>
+				<option value="0">JHIDE</option>
+			</field>
+
+			<field name="show_subcat_desc" type="list"
+			description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
+			label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL" >
+			<option value="">JGLOBAL_USE_GLOBAL</option>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+			<field name="show_cat_num_documents" type="list"
+			description="COM_OKEYDOC_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+			label="COM_OKEYDOC_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL" >
+			<option value="">JGLOBAL_USE_GLOBAL</option>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+	</fieldset>
+
+    <fieldset name="info_default_parameters"
+	    label="COM_OKEYDOC_CONFIG_BLOG_SETTINGS_LABEL"
+	    description="COM_OKEYDOC_CONFIG_BLOG_SETTINGS_DESC" >
+
+	    <field name="show_details" type="list"
+		   label="COM_OKEYDOC_SHOW_DETAILS_LABEL"
+		   description="COM_OKEYDOC_SHOW_DETAILS_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_download_button" type="list"
+		   label="COM_OKEYDOC_SHOW_DOWNLOAD_BUTTON_LABEL"
+		   description="COM_OKEYDOC_SHOW_DOWNLOAD_BUTTON_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_edit_button" type="list"
+		   label="COM_OKEYDOC_SHOW_EDIT_BUTTON_LABEL"
+		   description="COM_OKEYDOC_SHOW_EDIT_BUTTON_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_document_page_button" type="list"
+		   label="COM_OKEYDOC_SHOW_DOCUMENT_PAGE_BUTTON_LABEL"
+		   description="COM_OKEYDOC_SHOW_DOCUMENT_PAGE_BUTTON_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	</field>
+
+    </fieldset>
+
+    <fieldset name="list_default_parameters"
+	    label="COM_OKEYDOC_CONFIG_LIST_SETTINGS_LABEL"
+	    description="COM_OKEYDOC_CONFIG_LIST_SETTINGS_DESC" >
+
+	    <field name="list_show_downloads"
+		    type="list"
+		    label="COM_OKEYDOC_FIELD_SHOW_DOWNLOADS_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_DOWNLOADS_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="list_show_author"
+		    type="list"
+		    label="COM_OKEYDOC_FIELD_SHOW_AUTHOR_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_AUTHOR_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="list_show_date"
+		    type="list"
+		    label="JGLOBAL_SHOW_DATE_LABEL"
+		    description="JGLOBAL_SHOW_DATE_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="date_format"
+		    type="text" size="15"
+		    label="JGLOBAL_DATE_FORMAT_LABEL"
+		    description="COM_OKEYDOC_FIELD_DATE_FORMAT_DESC" />
+
+    </fieldset>
+
+    <fieldset name="shared" label="COM_OKEYDOC_SHARED_LABEL"
+	      description="COM_OKEYDOC_SHARED_DESC" >
+
+	      <field name="filter_field" type="list"
+		      description="COM_OKEYDOC_SHOW_FILTER_FIELD_DESC"
+		      label="JGLOBAL_FILTER_FIELD_LABEL">
+		      <option value="">JGLOBAL_USE_GLOBAL</option>
+		      <option value="hide">JHIDE</option>
+		      <option value="title">JGLOBAL_TITLE</option>
+		      <option value="author">JAUTHOR</option>
+	      </field>
+
+	      <field name="filter_ordering" type="list"
+		      label="COM_OKEYDOC_SHOW_SORTING_FILTER_LABEL"
+		      description="COM_OKEYDOC_SHOW_SORTING_FILTER_DESC">
+		      <option value="">JGLOBAL_USE_GLOBAL</option>
+		      <option value="0">JHIDE</option>
+		      <option value="1">JSHOW</option>
+	      </field>
+
+	      <field name="show_pagination_limit" type="list"
+		      label="JGLOBAL_DISPLAY_SELECT_LABEL"
+		      description="JGLOBAL_DISPLAY_SELECT_DESC">
+		      <option value="">JGLOBAL_USE_GLOBAL</option>
+		      <option value="0">JHIDE</option>
+		      <option value="1">JSHOW</option>
+	      </field>
+
+		<field name="spacer1" type="spacer" hr="true" />
+
+	    <field name="orderby_pri"
+		    type="list"
+		    label="JGLOBAL_CATEGORY_ORDER_LABEL"
+		    description="JGLOBAL_CATEGORY_ORDER_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="none">JGLOBAL_NO_ORDER</option>
+		    <option value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+		    <option value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+		    <option value="order">JGLOBAL_CATEGORY_MANAGER_ORDER</option>
+	    </field>
+
+	    <field name="orderby_sec" type="list"
+		    description="COM_OKEYDOC_DOCUMENT_ORDER_DESC"
+		    label="COM_OKEYDOC_DOCUMENT_ORDER_LABEL" >
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="date">COM_OKEYDOC_ORDERING_DATE_ASC</option>
+		    <option value="rdate">COM_OKEYDOC_ORDERING_DATE_DESC</option>
+		    <option value="alpha">COM_OKEYDOC_ORDERING_TITLE_ASC</option>
+		    <option value="ralpha">COM_OKEYDOC_ORDERING_TITLE_DESC</option>
+		    <option value="author">COM_OKEYDOC_ORDERING_AUTHOR_ASC</option>
+		    <option value="rauthor">COM_OKEYDOC_ORDERING_AUTHOR_DESC</option>
+		    <option value="downloads">COM_OKEYDOC_ORDERING_DOWNLOADS_ASC</option>
+		    <option value="rdownloads">COM_OKEYDOC_ORDERING_DOWNLOADS_DESC</option>
+		    <option value="order">COM_OKEYDOC_ORDERING_ORDERING_ASC</option>
+		    <option value="rorder">COM_OKEYDOC_ORDERING_ORDERING_DESC</option>
+	    </field>
+
+	    <field name="order_date" type="list"
+		    description="COM_OKEYDOC_DOCUMENT_ORDER_DATE_DESC"
+		    label="JGLOBAL_ORDERING_DATE_LABEL" >
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="created">JGLOBAL_CREATED</option>
+		    <option value="modified">JGLOBAL_MODIFIED</option>
+		    <option value="published">JPUBLISHED</option>
+	    </field>
+
+	    <field name="show_pagination"
+		    type="list"
+		    label="JGLOBAL_Pagination_Label"
+		    description="JGLOBAL_Pagination_Desc">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="0">JHIDE</option>
+		    <option value="1">JSHOW</option>
+		    <option value="2">JGLOBAL_AUTO</option>
+	    </field>
+
+	    <field name="show_pagination_results" type="list"
+		    label="JGLOBAL_PAGINATION_RESULTS_LABEL"
+		    description="JGLOBAL_PAGINATION_RESULTS_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+    </fieldset>
+
+</fields>
+</metadata>

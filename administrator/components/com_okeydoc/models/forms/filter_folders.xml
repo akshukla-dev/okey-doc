@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter">
+		<field
+			name="search"
+			type="text"
+			label="COM_OKEYDOC_SEARCH_IN_TITLE"
+			hint="JSEARCH_FILTER"
+			class="js-stools-search-string"
+		/>
+		<field
+			name="user_id"
+			type="dmsuser"
+			label="COM_OKEYDOC_SELECT_USER"
+			description="COM_BANNERS_FILTER_CLIENT_DESC"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_OKEYDOC_SELECT_USER</option>
+		</field>
+		<field
+			name="category_id"
+			type="category"
+			label="JOPTION_FILTER_CATEGORY"
+			extension="com_okeydoc"
+			description="JOPTION_FILTER_CATEGORY_DESC"
+			onchange="this.form.submit();"
+			>
+			<option value="">JOPTION_SELECT_CATEGORY</option>
+		</field>
+	</fields>
+	<fields name="list">
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			statuses="*,0,1,2,-2"
+			description="JGLOBAL_SORT_BY"
+			onchange="this.form.submit();"
+			default="d.title ASC"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="f.title ASC">COM_OKEYDOC_HEADING_TITLE_ASC</option>
+			<option value="f.title DESC">COM_OKEYDOC_HEADING_TITLE_DESC</option>
+			<option value="f.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="f.id DESC">JGRID_HEADING_ID_DESC</option>
+			<option value="f.created ASC">JDATE_ASC</option>
+			<option value="f.created DESC">JDATE_DESC</option>
+			<option value="f.created_by ASC">JAUTHOR_ASC</option>
+			<option value="f.created_by DESC">JAUTHOR_DESC</option>
+			<option value="f.documents ASC">COM_OKEYDOC_DOCUMENTS_ASC</option>
+			<option value="f.documents DESC">COM_OKEYDOC_DOCUMENTS_DESC</option>
+		</field>
+		<field
+			name="limit"
+			type="limitbox"
+			class="inputbox input-mini"
+			default="25"
+			label="COM_BANNERS_LIST_LIMIT"
+			description="COM_BANNERS_LIST_LIMIT_DESC"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

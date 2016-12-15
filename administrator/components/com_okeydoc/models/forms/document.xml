@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form addrulepath="/administrator/components/com_okeydoc/models/rules">
+
+  <fieldset name="details">
+
+	<field name="link_method" type="list" 
+		label="COM_OKEYDOC_LINK_METHOD_LABEL"
+		description="COM_OKEYDOC_LINK_METHOD_DESC"
+		class="inputbox" size="1" default="server">
+		<option value="server">COM_OKEYDOC_LINK_METHOD_SERVER</option>
+		<option value="url">COM_OKEYDOC_LINK_METHOD_URL</option>
+	</field>
+
+	<field name="uploaded_file" type="file"
+		label="COM_OKEYDOC_FIELD_METHOD_SERVER_LABEL"
+		description="COM_OKEYDOC_FIELD_METHOD_SERVER_DESC"
+		size="40" required="false" />
+
+	<field name="document_url" type="text"
+		label="COM_OKEYDOC_FIELD_METHOD_URL_LABEL"
+		description="COM_OKEYDOC_FIELD_METHOD_URL_DESC"
+		required="false" />
+
+	<field name="author" type="text"
+		label="COM_OKEYDOC_FIELD_AUTHOR_LABEL"
+		description="COM_OKEYDOC_FIELD_AUTHOR_DESC"
+		size="40" required="true" />
+
+	<field name="documenttext" type="editor"
+		label="COM_OKEYDOC_FIELD_DESCRIPTION_LABEL"
+		description="COM_OKEYDOC_FIELD_DESCRIPTION_DESC"
+		filter="JComponentHelper::filterText" buttons="true" />
+
+	<field name="contcatids" type="contentcategories" multiple="multiple"
+		label="COM_OKEYDOC_FIELD_ARTICLE_CATEGORIES_LABEL"
+		description="COM_OKEYDOC_FIELD_ARTICLE_CATEGORIES_DESC"
+		class="inputbox" >
+	</field>
+
+	<field name="articleids" type="articles" multiple="multiple"
+		label="COM_OKEYDOC_FIELD_ARTICLES_LABEL"
+		description="COM_OKEYDOC_FIELD_ARTICLES_DESC"
+		class="inputbox" >
+	</field>
+
+	<field name="file_name" type="text"
+		label="COM_OKEYDOC_FIELD_FILE_NAME_LABEL"
+		description="COM_OKEYDOC_FIELD_FILE_NAME_DESC"
+		filter="unset"
+		readonly="true" class="readonly" 
+		size="40" />
+
+	<field name="downloads" type="text"
+		class="readonly"
+		size="6" label="COM_OKEYDOC_FIELD_DOWNLOADS_LABEL"
+		description="COM_OKEYDOC_FIELD_DOWNLOADS_DESC"
+		readonly="true" filter="unset" />
+
+	<!-- layout: title_alias -->
+	<field name="title" type="text"
+		label="COM_OKEYDOC_FIELD_TITLE_LABEL"
+		description="COM_OKEYDOC_FIELD_TITLE_DESC"
+		class="input-xxlarge input-large-text"
+		size="40" required="true" />
+
+	<field name="alias" type="text" label="JFIELD_ALIAS_LABEL"
+		description="JFIELD_ALIAS_DESC"
+		hint="JFIELD_ALIAS_PLACEHOLDER"
+		class="inputbox" size="40" />
+
+	<!-- layout: global -->
+	<field name="catid" type="componentcategories"
+		label="COM_OKEYDOC_FIELD_CATEGORY_LABEL" description="COM_OKEYDOC_FIELD_CATEGORY_DESC"
+		class="inputbox" validate="componentcategories" required="true" >
+	</field>
+
+	<field name="language" type="contentlanguage" label="COM_OKEYDOC_FIELD_LANGUAGE_LABEL"
+		description="COM_OKEYDOC_FIELD_LANGUAGE_DESC" class="inputbox">
+		<option value="*">JALL</option>
+	</field>
+
+	<field name="published" type="list"
+		label="COM_OKEYDOC_FIELD_PUBLISHED_LABEL"
+		description="COM_OKEYDOC_FIELD_PUBLISHED_DESC"
+		class="inputbox"
+		size="1" default="1">
+		<option value="1">JPUBLISHED</option>
+		<option value="0">JUNPUBLISHED</option>
+	</field>
+
+	<field name="access" type="accesslevel" label="COM_OKEYDOC_FIELD_ACCESS_LABEL"
+		description="COM_OKEYDOC_FIELD_ACCESS_DESC" class="inputbox" size="1" />
+
+	<field name="tags" type="tag" label="JTAG" description="JTAG_DESC"
+	       class="inputbox span12" multiple="true">
+	</field>
+
+	<!-- layout: publishingdata -->
+
+	<!-- IMPORTANT: A input field called "id" must exists to set if the element 
+	     is new (id = 0) or in edition. -->
+	<field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL" 
+		readonly="true" class="readonly" />
+
+	<field name="created_by" type="user"
+		label="COM_OKEYDOC_FIELD_PUT_ONLINE_BY_LABEL" description="COM_OKEYDOC_FIELD_PUT_ONLINE_BY_DESC" />
+
+	<field name="created" type="calendar"
+		label="COM_OKEYDOC_FIELD_ONLINE_DATE_LABEL" description="COM_OKEYDOC_FIELD_ONLINE_DATE_DESC"
+		class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
+		filter="user_utc" />
+
+	<field name="publish_up" type="calendar"
+		label="JGLOBAL_FIELD_PUBLISH_UP_LABEL"
+		description="JGLOBAL_FIELD_PUBLISH_UP_DESC"
+		class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
+		filter="user_utc" />
+
+	<field name="publish_down" type="calendar"
+		label="JGLOBAL_FIELD_PUBLISH_DOWN_LABEL"
+		description="JGLOBAL_FIELD_PUBLISH_DOWN_DESC"
+		class="inputbox" format="%Y-%m-%d %H:%M:%S" size="22"
+		filter="user_utc" />
+
+	<field name="hits" type="text"
+		class="readonly"
+		size="6" label="JGLOBAL_HITS"
+		description="COM_OKEYDOC_FIELD_HITS_DESC"
+		readonly="true" filter="unset" />
+
+	<field name="ordering" type="text" label="JFIELD_ORDERING_LABEL"
+		description="JFIELD_ORDERING_DESC" class="inputbox" size="6"
+		default="0" />
+
+	<field name="metakey" type="textarea"
+		label="JFIELD_META_KEYWORDS_LABEL" description="JFIELD_META_KEYWORDS_DESC"
+		rows="3" cols="30" />
+
+	<field name="metadesc" type="textarea"
+		label="JFIELD_META_DESCRIPTION_LABEL" description="JFIELD_META_DESCRIPTION_DESC"
+		rows="3" cols="30" />
+
+	<field name="modified" type="calendar" class="readonly"
+		label="JGLOBAL_FIELD_MODIFIED_LABEL" description="COM_OKEYDOC_FIELD_MODIFIED_DESC"
+		size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+
+	<field name="modified_by" type="user"
+		label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+		class="readonly" readonly="true"
+		filter="unset" />
+
+	<field name="checked_out" type="hidden" filter="unset" />
+	<field name="checked_out_time" type="hidden" filter="unset" />
+
+	<field name="replace_file" type="hidden" default="0" filter="unset" />
+
+	</fieldset>
+
+	<fields name="params" label="COM_OKEYDOC_PARAMS_FIELDSET_LABEL">
+	  <fieldset name="basic" label="COM_OKEYDOC_PARAMS_FIELDSET_LABEL">
+
+	    <field name="show_title"
+		    type="list"
+		    class="chzn-color"
+		    default=""
+		    label="COM_OKEYDOC_FIELD_SHOW_TITLE_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_TITLE_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="link_title"
+		    type="list"
+		    class="chzn-color"
+		    default=""
+		    label="JGLOBAL_LINKED_TITLES_LABEL"
+		    description="COM_OKEYDOC_FIELD_LINK_TITLE_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JYES</option>
+		    <option value="0">JNO</option>
+	    </field>
+
+	    <field name="show_introtext"
+		    type="list"
+		    class="chzn-color"
+		    default=""
+		    label="COM_OKEYDOC_FIELD_SHOW_INTROTEXT_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_INTROTEXT_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_category"
+		    type="list"
+		    class="chzn-color"
+		    label="JGLOBAL_SHOW_CATEGORY_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_CATEGORY_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="link_category"
+		    type="list"
+		    class="chzn-color"
+		    label="JGLOBAL_LINK_CATEGORY_LABEL"
+		    description="COM_OKEYDOC_FIELD_LINK_CATEGORY_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JYES</option>
+		    <option value="0">JNO</option>
+	    </field>
+
+	    <field name="show_put_online_by"
+		    type="list"
+		    class="chzn-color"
+		    default=""
+		    label="COM_OKEYDOC_FIELD_SHOW_PUT_ONLINE_BY_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_PUT_ONLINE_BY_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_author"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_AUTHOR_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_AUTHOR_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_file_name"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_FILE_NAME_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_FILE_NAME_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_file_size"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_FILE_SIZE_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_FILE_SIZE_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_file_type"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_FILE_TYPE_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_FILE_TYPE_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_extension_icon"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_EXTENSION_ICON_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_EXTENSION_ICON_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_create_date"
+		    type="list"
+		    class="chzn-color"
+		    label="JGLOBAL_SHOW_CREATE_DATE_LABEL"
+		    description="COM_OKEYDOC_SHOW_CREATE_DATE_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_modify_date"
+		    type="list"
+		    class="chzn-color"
+		    label="JGLOBAL_SHOW_MODIFY_DATE_LABEL"
+		    description="COM_OKEYDOC_SHOW_MODIFY_DATE_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_publish_date"
+		    type="list"
+		    class="chzn-color"
+		    label="JGLOBAL_SHOW_PUBLISH_DATE_LABEL"
+		    description="COM_OKEYDOC_SHOW_PUBLISH_DATE_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_hits"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_HITS_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_HITS_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_downloads"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_DOWNLOADS_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_DOWNLOADS_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field id="show_tags"
+		    name="show_tags"
+		    type="list"
+		    class="chzn-color"
+		    default=""
+		    label="COM_OKEYDOC_FIELD_SHOW_TAGS_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_TAGS_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_complete_details"
+		    type="list"
+		    class="chzn-color"
+		    label="COM_OKEYDOC_FIELD_SHOW_COMPLETE_DETAILS_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_COMPLETE_DETAILS_DESC"
+		    default="">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JSHOW</option>
+		    <option value="0">JHIDE</option>
+	    </field>
+
+	    <field name="show_noauth"
+		    type="list"
+		    class="chzn-color"
+		    default=""
+		    label="JGLOBAL_SHOW_UNAUTH_LINKS_LABEL"
+		    description="COM_OKEYDOC_FIELD_SHOW_UNAUTH_LINK_DESC">
+		    <option value="">JGLOBAL_USE_GLOBAL</option>
+		    <option value="1">JYES</option>
+		    <option value="0">JNO</option>
+	    </field>
+
+	  </fieldset>
+	</fields>
+
+        <fieldset name="permissions" label="JFIELD_RULES_LABEL">
+
+            <field name="asset_id" type="hidden" filter="unset" />
+
+            <field name="rules" type="rules" label="JFIELD_RULES_LABEL"
+                    translate_label="false" filter="rules"
+                    component="com_okeydoc" section="document" validate="rules"
+            />
+        </fieldset>
+
+	<fields name="metadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+		<fieldset name="jmetadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+
+			<field name="robots"
+				type="list"
+				label="JFIELD_METADATA_ROBOTS_LABEL"
+				description="JFIELD_METADATA_ROBOTS_DESC"
+			>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="index, follow">JGLOBAL_INDEX_FOLLOW</option>
+				<option value="noindex, follow">JGLOBAL_NOINDEX_FOLLOW</option>
+				<option value="index, nofollow">JGLOBAL_INDEX_NOFOLLOW</option>
+				<option value="noindex, nofollow">JGLOBAL_NOINDEX_NOFOLLOW</option>
+			</field>
+
+			<field name="rights" type="text"
+				label="JFIELD_META_RIGHTS_LABEL" description="JFIELD_META_RIGHTS_DESC"
+				required="false" filter="string" cols="30" rows="2" />
+		</fieldset>
+	</fields>
+</form>
+
+
+
