@@ -15,7 +15,6 @@ JHtml::_('formbehavior.chosen', 'select');
 
 //Prevent loading fields and fielsets twice through the JLayoutHelper::render('joomla.edit.params', $this) function.
 $this->ignore_fieldsets = array('permissions', 'details', 'jmetadata');
-$this->ignore_fields = array('metadata');
 
 $canDo = OkeydocHelper::getActions();
 $uri = JUri::getInstance();
@@ -103,7 +102,6 @@ Joomla.submitbutton = function(task)
     <?php echo JHtml::_('bootstrap.endTab'); ?>
 
     <?php echo JLayoutHelper::render('joomla.edit.params', $this); ?>
-    <?php echo JHtml::_('bootstrap.endTabSet'); ?>
 
     <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'permissions', JText::_('COM_OKEYDOC_TAB_RULES', true)); ?>
             <?php echo $this->form->getInput('rules'); ?>

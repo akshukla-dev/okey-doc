@@ -222,7 +222,7 @@ class OkeydocHelper
 
 
   //Convert the number of bytes to kilo or mega bytes.
-  public function byteConverter($nbBytes)
+  public static function byteConverter($nbBytes)
   {
     $conversion = array();
 

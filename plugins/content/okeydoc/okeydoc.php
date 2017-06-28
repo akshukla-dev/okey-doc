@@ -58,7 +58,7 @@ class plgContentOkeydoc extends JPlugin
       } 
 
       //Get the component parameters.
-      $params =& JComponentHelper::getParams('com_okeydoc');
+      $params = JComponentHelper::getParams('com_okeydoc');
 
       //The file has been linked to an URL.
       if($linkMethod == 'url') { 

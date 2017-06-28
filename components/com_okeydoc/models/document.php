@@ -73,6 +73,10 @@ class OkeydocModelDocument extends JModelItem
       $query->select('c.title AS category_title, c.alias AS category_alias, c.access AS category_access')
 	    ->join('LEFT', '#__categories AS c on c.id = d.catid');
 
+      // Join over the users.
+      $query->select('u.name AS put_online_by')
+	    ->join('LEFT', '#__users AS u ON u.id = d.created_by');
+
       $query->where('d.id='.$pk);
       $db->setQuery($query);
       $data = $db->loadObject();
