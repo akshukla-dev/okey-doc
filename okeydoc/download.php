@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Okey DOC 1.x
- * @copyright Copyright (c)2014 Lucas Sanner
+ * @copyright Copyright (c) 2014 - 2017 Lucas Sanner
  * @license GNU General Public License version 3, or later
  * @contact team@codamigo.com
  */
@@ -17,8 +17,16 @@ define('JPATH_BASE', dirname(__DIR__));
 //Get the required files
 require_once (JPATH_BASE.'/includes/defines.php');
 require_once (JPATH_BASE.'/includes/framework.php');
+//Path to the factory.php file before the 3.8.0 Joomla's version.
+$factoryFilePath = '/libraries/joomla/factory.php';
+$jversion = new JVersion();
+//Check Joomla's version.
+if($jversion->getShortVersion() >= '3.8.0') {
+  //Set to the file new location.
+  $factoryFilePath = '/libraries/src/Factory.php';
+}
 //We need to use Joomla's database class 
-require_once (JPATH_BASE.'/libraries/joomla/factory.php');
+require_once (JPATH_BASE.$factoryFilePath);
 //Create the application
 $mainframe =& JFactory::getApplication('site');
 
