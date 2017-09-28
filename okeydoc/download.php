@@ -28,7 +28,7 @@ if($jversion->getShortVersion() >= '3.8.0') {
 //We need to use Joomla's database class 
 require_once (JPATH_BASE.$factoryFilePath);
 //Create the application
-$mainframe =& JFactory::getApplication('site');
+$mainframe = JFactory::getApplication('site');
 
 //Get the id number passed through the url.
 $jinput = JFactory::getApplication()->input;
