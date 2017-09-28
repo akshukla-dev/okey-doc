@@ -108,10 +108,6 @@ class OkeydocHelper
     $db->setQuery($query);
     $destFolder = $db->loadObject();
 
-    //Get the global array $_FILE which contains all the data file.
-    //NOTES: Since the input file is created by the JForm class, we get 
-    //the data file in a different way. eg: $_FILES['jform'][<field $_FILES>][<name of the input>]
-    //UPDATE: Working with JInput makes now things easier.
     $jinput = JFactory::getApplication()->input;
     $files = $jinput->files->get('jform');
     $files = $files['uploaded_file'];

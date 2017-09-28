@@ -39,7 +39,7 @@ class com_okeydocInstallerScript
       $rel = ' v-'.$oldRelease.' -> v-'.$this->release;
 
       if(version_compare($this->release, $oldRelease, 'le')) {
-	Jerror::raiseWarning(null, JText::_('COM_OKEYDOC_UPDATE_INCORRECT_VERSION').$rel);
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_UPDATE_INCORRECT_VERSION').$rel, 'error');
 	return false;
       }
     }
@@ -50,7 +50,7 @@ class com_okeydocInstallerScript
 	echo '<p style="color:green;">'.JText::_('COM_OKEYDOC_FOLDER_CREATION_SUCCESS').'</p>';
       }
       else { //Stop the installation if the folder cannot be created. 
-	Jerror::raiseWarning(null, JText::_('COM_OKEYDOC_FOLDER_CREATION_ERROR'));
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_FOLDER_CREATION_ERROR'), 'error');
 	return false;
       }
 
@@ -60,7 +60,7 @@ class com_okeydocInstallerScript
 	echo '<p style="color:green;">'.JText::_('COM_OKEYDOC_HTACCESS_CREATION_SUCCESS').'</p>';
       }
       else { //Stop the installation if the .htaccess file cannot be created. 
-	Jerror::raiseWarning(null, JText::_('COM_OKEYDOC_HTACCESS_CREATION_ERROR'));
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_HTACCESS_CREATION_ERROR'), 'error');
 	return false;
       }
     }
@@ -117,6 +117,14 @@ class com_okeydocInstallerScript
       //Create the csv file.
       JFile::write(JPATH_ROOT.'/okeydoc/file_log.csv', $buffer);
     }
+
+    //Remove tagging informations from the Joomla table.
+    $db = JFactory::getDbo();
+    $query = $db->getQuery(true);
+    $query->delete('#__content_types')
+	  ->where('type_alias="com_okeydoc.document" OR type_alias="com_okeydoc.category"');
+    $db->setQuery($query);
+    $db->query();
   }
 
 
@@ -192,13 +200,15 @@ $db->Quote('OkeydocHelperRoute::getCategoryRoute'));
       $db->query();
     }
 
-    //Move the download.php file in the file root directory.
-    if(JFile::move(JPATH_ADMINISTRATOR.'/components/com_okeydoc/download.php',JPATH_ROOT.'/okeydoc/download.php')) {
-      echo '<p style="color:green;">'.JText::_('COM_OKEYDOC_DOWNLOAD_FILE_MOVE_SUCCESS').'</p>';
-    }
-    else { //If the download.php file cannot be moved a warning message is displayed. 
-      Jerror::raiseWarning(null, JText::_('COM_OKEYDOC_DOWNLOAD_FILE_MOVE_ERROR'));
-      return false;
+    if($type != 'uninstall') {
+      //Copies the download.php file in the file root directory.
+      if(JFile::copy(JPATH_ADMINISTRATOR.'/components/com_okeydoc/download.php',JPATH_ROOT.'/okeydoc/download.php')) {
+	echo '<p style="color:green;">'.JText::_('COM_OKEYDOC_DOWNLOAD_FILE_COPY_SUCCESS').'</p>';
+      }
+      else { //If the download.php file cannot be copied a warning message is displayed. 
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_DOWNLOAD_FILE_COPY_ERROR'), 'error');
+	return false;
+      }
     }
   }
 
@@ -209,7 +219,11 @@ $db->Quote('OkeydocHelperRoute::getCategoryRoute'));
   function getParam($name)
   {
     $db = JFactory::getDbo();
-    $db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "okeydoc"');
+    $query = $db->getQuery(true);
+    $query->select('manifest_cache')
+	  ->from('#__extensions')
+	  ->where('element = "com_okeydoc"');
+    $db->setQuery($query);
     $manifest = json_decode($db->loadResult(), true);
 
     return $manifest[$name];

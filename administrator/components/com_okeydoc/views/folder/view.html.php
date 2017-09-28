@@ -28,7 +28,7 @@ class OkeydocViewFolder extends JViewLegacy
 
     //Check for errors.
     if(count($errors = $this->get('Errors'))) {
-      JError::raiseError(500, implode('<br />', $errors));
+      JFactory::getApplication()->enqueueMessage($errors, 'error');
       return false;
     }
 
@@ -43,7 +43,7 @@ class OkeydocViewFolder extends JViewLegacy
   protected function addToolBar() 
   {
     //Make the main menu inactive.
-    JRequest::setVar('hidemainmenu', true);
+    JFactory::getApplication()->input->set('hidemainmenu', true);
 
     //Display the view title and the icon.
     JToolBarHelper::title(JText::_('COM_OKEYDOC_MANAGER_DOCUMENTS'), 'okeydoc');

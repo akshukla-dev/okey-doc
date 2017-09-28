@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="3.0" method="upgrade">
+<extension type="component" version="3.3" method="upgrade">
  
-    <name>com_okeydoc</name>
+    <name>COM_OKEYDOC</name>
     <!-- The following elements are optional and free of formatting conttraints -->
-    <creationDate>June 2014</creationDate>
+    <creationDate>2017-09-26</creationDate>
     <author>Lucas Sanner</author>
-    <authorEmail>lucas.sanner@gmail.com</authorEmail>
-    <authorUrl>https://sourceforge.net/p/okeydoc</authorUrl>
+    <authorEmail>lucas.sanner@codalia.net</authorEmail>
+    <authorUrl>https://github.com/Duddy67/okey-doc</authorUrl>
     <license>GPL 3.0</license> 
     <!--  The version string is recorded in the components table -->
-    <version>1.5</version>
+    <version>1.6</version>
     <!-- The description is optional and defaults to the name -->
     <description>COM_OKEYDOC_INSTALLATION_DESC</description>
 

@@ -28,7 +28,7 @@ class OkeydocViewForm extends JViewLegacy
 
     //Redirect unregistered users to the login page.
     if($user->guest) {
-      $app =& JFactory::getApplication();
+      $app = JFactory::getApplication();
       $app->redirect('index.php?option=com_users&view=login'); 
       return true;
     }
@@ -49,13 +49,13 @@ class OkeydocViewForm extends JViewLegacy
     }
 
     if($authorised !== true) {
-      JError::raiseError(403, JText::_('JERROR_ALERTNOAUTHOR'));
+      JFactory::getApplication()->enqueueMessage(JText::_('JERROR_ALERTNOAUTHOR'), 'error');
       return false;
     }
 
     // Check for errors.
     if(count($errors = $this->get('Errors'))) {
-      JError::raiseWarning(500, implode("\n", $errors));
+      JFactory::getApplication()->enqueueMessage($errors, 'error');
       return false;
     }
 

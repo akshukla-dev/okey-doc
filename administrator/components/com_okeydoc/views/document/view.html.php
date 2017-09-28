@@ -29,7 +29,7 @@ class OkeydocViewDocument extends JViewLegacy
 
     //Check for errors.
     if(count($errors = $this->get('Errors'))) {
-      JError::raiseError(500, implode('<br />', $errors));
+      JFactory::getApplication()->enqueueMessage($errors, 'error');
       return false;
     }
 
@@ -37,15 +37,15 @@ class OkeydocViewDocument extends JViewLegacy
       //Warn the user if the document category has been trashed, archived or unpublished.
       switch($this->item->cat_state) {
 	case -2 :
-	  JError::raiseNotice(500, JText::sprintf('COM_OKEYDOC_WARNING_CATEGORY_TRASHED', $this->item->cat_title));
+	  JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_OKEYDOC_WARNING_CATEGORY_TRASHED', $this->item->cat_title), 'error');
 	  break;
 
 	case 0 :
-	  JError::raiseNotice(500, JText::sprintf('COM_OKEYDOC_WARNING_CATEGORY_UNPUBLISHED', $this->item->cat_title));
+	  JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_OKEYDOC_WARNING_CATEGORY_UNPUBLISHED', $this->item->cat_title), 'error');
 	  break;
 
 	case 2 :
-	  JError::raiseNotice(500, JText::sprintf('COM_OKEYDOC_WARNING_CATEGORY_ARCHIVED', $this->item->cat_title));
+	  JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_OKEYDOC_WARNING_CATEGORY_ARCHIVED', $this->item->cat_title), 'error');
 	  break;
       }
     }
@@ -61,7 +61,7 @@ class OkeydocViewDocument extends JViewLegacy
   protected function addToolBar() 
   {
     //Make main menu inactive.
-    JRequest::setVar('hidemainmenu', true);
+    JFactory::getApplication()->input->set('hidemainmenu', true);
 
     $user = JFactory::getUser();
     $userId = $user->get('id');

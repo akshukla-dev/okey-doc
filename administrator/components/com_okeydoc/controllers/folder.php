@@ -25,7 +25,7 @@ class OkeydocControllerFolder extends JControllerForm
     $user = JFactory::getUser();
 
     if($params->get('superadmin_only') && !$user->get('isRoot')) {
-      JError::raiseWarning(500, JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'));
+      JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'), 'error');
       $this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view='.$this->view_item, false));
       return false;
     }
@@ -41,7 +41,7 @@ class OkeydocControllerFolder extends JControllerForm
     $user = JFactory::getUser();
 
     if($params->get('superadmin_only') && !$user->get('isRoot')) {
-      JError::raiseWarning(500, JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'));
+      JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'), 'error');
       $this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view='.$this->view_item, false));
       return false;
     }
@@ -57,7 +57,7 @@ class OkeydocControllerFolder extends JControllerForm
     $user = JFactory::getUser();
 
     if($params->get('superadmin_only') && !$user->get('isRoot')) {
-      JError::raiseWarning(500, JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'));
+      JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'), 'error');
       $this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view='.$this->view_item, false));
       return false;
     }
@@ -78,7 +78,7 @@ class OkeydocControllerFolder extends JControllerForm
       $data['symlink_path'] = trim($data['symlink_path']);
       //Check that path is not relative (starts with a slash) and target folder exists.
       if(!preg_match('#^/.+#', $data['symlink_path']) || !is_dir($data['symlink_path'])) {
-	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_ERROR_INVALID_SYMLINK_PATH'), 'error');
+	$app->enqueueMessage(JText::_('COM_OKEYDOC_ERROR_INVALID_SYMLINK_PATH'), 'error');
 	// Save the data in the session.
 	//Note: It allows to preserve the data previously set by the user after the redirection.
 	$app->setUserState($this->option.'.edit.'.$this->context.'.data', $data);

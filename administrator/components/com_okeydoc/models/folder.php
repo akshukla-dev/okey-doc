@@ -59,7 +59,7 @@ class OkeydocModelFolder extends JModelAdmin
     $user = JFactory::getUser();
 
     if($params->get('superadmin_only') && !$user->get('isRoot')) {
-      JError::raiseWarning(500, JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'));
+      JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_NO_FOLDERS_ACCESS'), 'error');
       return false;
     }
 

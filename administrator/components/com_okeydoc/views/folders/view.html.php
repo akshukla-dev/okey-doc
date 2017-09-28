@@ -28,14 +28,14 @@ class OkeydocViewFolders extends JViewLegacy
 
     // Check for errors.
     if(count($errors = $this->get('Errors'))) {
-      JError::raiseError(500, implode('<br />', $errors));
+      JFactory::getApplication()->enqueueMessage($errors, 'error');
       return false;
     }
 
     //Check if the Okey DOC plugin is installed (or if it is enabled). If it doesn't we display an
     //information note.
     if(!JPluginHelper::isEnabled('content', 'okeydoc')) {
-      JError::raiseNotice(500, JText::_('COM_OKEYDOC_PLUGIN_NOT_INSTALLED'));
+      JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_PLUGIN_NOT_INSTALLED'), 'warning');
     }
 
     $user = JFactory::getUser();

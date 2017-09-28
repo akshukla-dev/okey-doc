@@ -82,7 +82,8 @@ class OkeydocModelDocument extends JModelItem
       $data = $db->loadObject();
 
       if(is_null($data)) {
-	return JError::raiseError(404, JText::_('COM_OKEYDOC_ERROR_DOCUMENT_NOT_FOUND'));
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_ERROR_DOCUMENT_NOT_FOUND'), 'error');
+	return false;
       }
 
       // Convert parameter fields to objects.

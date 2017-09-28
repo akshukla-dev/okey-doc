@@ -19,10 +19,10 @@ class OkeydocController extends JControllerLegacy
     require_once JPATH_COMPONENT.'/helpers/okeydoc.php';
 
     //Display the submenu.
-    OkeydocHelper::addSubmenu(JRequest::getCmd('view', 'documents'));
+    OkeydocHelper::addSubmenu($this->input->get('view', 'documents'));
 
     //Set the default view.
-    JRequest::setVar('view', JRequest::getCmd('view', 'documents'));
+    $this->input->set('view', $this->input->get('view', 'documents'));
 
     //Display the view.
     parent::display();
