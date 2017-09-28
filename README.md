@@ -1,5 +1,4 @@
-# Okey DOC 
-![logo](http://codalia.net/downloads/images/okeydoc/okeydoc-logo-2.png "Logo Title Text 1")
+# Okey DOC ![logo](http://codalia.net/downloads/images/okeydoc/okeydoc-logo-2.png "Logo Title Text 1")
 ## Presentation
 Okey DOC is a simple but efficient document management system. It allows you to manage easily your documents through your Joomla website. Okey DOC takes advantage of the Joomla ACL as well as its data model. You can organize your documents by categories then link them to articles or article categories.
 ## Download
