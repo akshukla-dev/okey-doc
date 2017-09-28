@@ -201,11 +201,17 @@ $db->Quote('OkeydocHelperRoute::getCategoryRoute'));
     }
 
     if($type != 'uninstall') {
-      //Copies the download.php file in the file root directory.
+
+      if($type == 'update') {
+	//Delete the previous download.php file.
+	JFile::delete(JPATH_ROOT.'/okeydoc/download.php');
+      }
+
+      //Moves the download.php file in the file root directory.
       if(JFile::move(JPATH_ADMINISTRATOR.'/components/com_okeydoc/helpers/download.php',JPATH_ROOT.'/okeydoc/download.php')) {
 	echo '<p style="color:green;">'.JText::_('COM_OKEYDOC_DOWNLOAD_FILE_MOVE_SUCCESS').'</p>';
       }
-      else { //If the download.php file cannot be copied a warning message is displayed. 
+      else { //If the download.php file cannot be moved a warning message is displayed. 
 	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_DOWNLOAD_FILE_MOVE_ERROR'), 'error');
 	return false;
       }
