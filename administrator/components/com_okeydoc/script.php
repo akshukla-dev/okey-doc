@@ -91,8 +91,6 @@ class com_okeydocInstallerScript
       JFolder::delete(JPATH_ROOT.'/okeydoc'); //Remove file root directory and all its content.
     }
     else { //Keep the file root directory untouched.
-      JFile::delete(JPATH_ROOT.'/okeydoc/download.php'); //Remove only download.php file.
-
       //Before the component is uninstalled we gather any relevant data about files then
       //put it into a csv file.
       $db = JFactory::getDbo();
@@ -198,23 +196,6 @@ $db->Quote('{"common"{"core_content_item_id":"id","core_title":"title","core_sta
 $db->Quote('OkeydocHelperRoute::getCategoryRoute'));
       $db->setQuery($query);
       $db->query();
-    }
-
-    if($type != 'uninstall') {
-
-      if($type == 'update') {
-	//Delete the previous download.php file.
-	JFile::delete(JPATH_ROOT.'/okeydoc/download.php');
-      }
-
-      //Moves the download.php file in the file root directory.
-      if(JFile::move(JPATH_ADMINISTRATOR.'/components/com_okeydoc/helpers/download.php',JPATH_ROOT.'/okeydoc/download.php')) {
-	echo '<p style="color:green;">'.JText::_('COM_OKEYDOC_DOWNLOAD_FILE_MOVE_SUCCESS').'</p>';
-      }
-      else { //If the download.php file cannot be moved a warning message is displayed. 
-	JFactory::getApplication()->enqueueMessage(JText::_('COM_OKEYDOC_DOWNLOAD_FILE_MOVE_ERROR'), 'error');
-	return false;
-      }
     }
   }
 

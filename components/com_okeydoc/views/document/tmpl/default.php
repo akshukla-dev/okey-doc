@@ -54,7 +54,7 @@ $item = $this->item;
 	    <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
     <?php endif; ?>
 
-    <p class="download-button"><a href="<?php echo $item->uri->root().'okeydoc/download.php?id='.$item->id; ?>" class="btn btn-success" target="_blank">
+    <p class="download-button"><a href="<?php echo $item->uri->root().'components/com_okeydoc/download/script.php?id='.$item->id; ?>" class="btn btn-success" target="_blank">
       <span class="icon-download"></span>&#160;<?php echo JText::_('COM_OKEYDOC_BUTTON_DOWNLOAD'); ?>
     </a></p>
   </div>

@@ -13,7 +13,13 @@
  
 //Initialize the Joomla framework
 define('_JEXEC', 1);
-define('JPATH_BASE', dirname(__DIR__));
+//First we get the number of letters we want to substract from the path.
+$length = strlen('/components/com_okeydoc');
+//Turn the length number into a negative value.
+$length = $length - ($length * 2);
+//Builds the path to the website root.
+define('JPATH_BASE', substr(dirname(__DIR__), 0, $length));
+
 //Get the required files
 require_once (JPATH_BASE.'/includes/defines.php');
 require_once (JPATH_BASE.'/includes/framework.php');

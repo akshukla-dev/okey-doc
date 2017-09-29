@@ -51,7 +51,7 @@ Joomla.submitbutton = function(task)
 		      <?php echo JText::_('COM_OKEYDOC_FIELD_DOWNLOAD_LABEL'); ?>
 		    </div>
 		    <div class="controls">
-		      <a href="<?php echo $uri->root().'okeydoc/download.php?id='.$this->item->id; ?>" class="btn btn-success" target="_blank">
+		      <a href="<?php echo $uri->root().'components/com_okeydoc/download/script.php?id='.$this->item->id; ?>" class="btn btn-success" target="_blank">
 			<span class="icon-download"></span>&#160;<?php echo JText::_('COM_OKEYDOC_BUTTON_DOWNLOAD'); ?>
 		      </a>
 		    </div>

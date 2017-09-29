@@ -41,6 +41,7 @@
 	    <!-- Folders  Section -->
 	    <folder>controllers</folder>
 	    <folder>css</folder>
+	    <folder>download</folder>
 	    <folder>helpers</folder>
 	    <folder>language</folder>
 	    <folder>layouts</folder>

@@ -131,7 +131,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
       <tr class="row<?php echo $i % 2; ?>">
 	      <td>
 		<a href="javascript:void(0)" onclick="if (window.parent)
-		window.parent.<?php echo $this->escape($function);?>('<?php echo $this->escape(addslashes($item->title)); ?>','<?php echo JUri::root().'okeydoc/download.php?id='.$item->id; ?>');"><?php echo $this->escape($item->title); ?></a>
+		window.parent.<?php echo $this->escape($function);?>('<?php echo $this->escape(addslashes($item->title)); ?>','<?php echo JUri::root().'components/com_okeydoc/download/script.php?id='.$item->id; ?>');"><?php echo $this->escape($item->title); ?></a>
 	      </td>
 	      <td class="center">
 		      <?php echo $this->escape($item->access_level); ?>

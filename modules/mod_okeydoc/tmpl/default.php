@@ -72,7 +72,7 @@ $doc->addStyleSheet(JURI::base().'modules/mod_okeydoc/mod-okeydoc.css');
 
 	<?php if($item->params->get('access-view')) : //Set the link to download the document.
 		$uri = JUri::getInstance();
-		$link = $uri->root().'okeydoc/download.php?id='.$item->id;
+		$link = $uri->root().'components/com_okeydoc/download/script.php?id='.$item->id;
 		$target = 'target="blank"'; //Open the document in a different tab.
 	      endif; ?>
 

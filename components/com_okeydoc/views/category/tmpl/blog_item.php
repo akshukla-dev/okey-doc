@@ -70,7 +70,7 @@ if(!$this->item->params->get('show_details')) {
 
       <?php if($this->item->params->get('show_download_button')) : ?>
 	<?php if($this->item->params->get('access-view')) : //Set the link to download the document.
-		$link = $this->item->uri->base().'okeydoc/download.php?id='.$this->item->id;
+		$link = $this->item->uri->base().'components/com_okeydoc/download/script.php?id='.$this->item->id;
 		$target = 'target="blank"'; //Open the document in a different tab.
 	      endif; ?>
 
