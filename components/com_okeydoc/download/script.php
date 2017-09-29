@@ -13,6 +13,8 @@
  
 //Initialize the Joomla framework
 define('_JEXEC', 1);
+//Note: Utterly useless here but it fits the JED expectations.
+defined('_JEXEC') or die;
 //First we get the number of letters we want to substract from the path.
 $length = strlen('/components/com_okeydoc');
 //Turn the length number into a negative value.

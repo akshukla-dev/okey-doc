@@ -197,6 +197,9 @@ $db->Quote('OkeydocHelperRoute::getCategoryRoute'));
       $db->setQuery($query);
       $db->query();
     }
+
+    //Delete the download.php file used by the Okey DOC versions prior to 1.6.
+    JFile::delete(JPATH_ROOT.'/okeydoc/download.php');
   }
 
 
